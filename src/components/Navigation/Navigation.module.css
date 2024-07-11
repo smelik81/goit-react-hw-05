@@ -1,0 +1,14 @@
+.nav {
+  display: flex;
+  width: 200px;
+  gap: 15px;
+}
+
+.link {
+  font-size: 28px;
+  color: brown;
+}
+.active {
+  text-decoration: underline;
+  color: green;
+}
