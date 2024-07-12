@@ -1,6 +1,8 @@
 import { getProductsApi } from "../../api/fetch-api";
 import { useEffect, useState } from "react";
 import MovieList from "../../components/MovieList/MovieList";
+import css from "./HomePage.module.css";
+import Loader from "../../components/Loader";
 
 const HomePage = () => {
   const [films, setFilms] = useState([]);
@@ -13,7 +15,6 @@ const HomePage = () => {
         setIsLoading(true);
         setError(false);
         const { results } = await getProductsApi();
-        console.log(results);
         setFilms(results);
       } catch (error) {
         setError(true);
@@ -25,11 +26,19 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Tranding Week</h2>
-      {isLoading && <p>Loading...</p>}
-      {error && <p>Error fetching data: {error.message}</p>}
-      {films.length > 0 && <MovieList films={films} />}
+    <div className={css.container}>
+      {isLoading && <Loader />}
+      {error && (
+        <p style={{ color: "black", fontSize: "28px" }}>
+          Error fetching data: {error.message}
+        </p>
+      )}
+      {films.length > 0 && (
+        <>
+          <h2 className={css.homeTitle}>Tranding Week</h2>
+          <MovieList films={films} />
+        </>
+      )}
     </div>
   );
 };

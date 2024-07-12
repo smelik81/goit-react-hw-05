@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  width: 800px;
+  gap: 30px;
+  padding: 12px;
+  background-color: white;
+}
+
+.imgMovie {
+  display: block;
+  height: 450px;
+}
+
+.textWrapper {
+  color: black;
+}
+
+.rating {
+  color: #07cb07;
+  font-weight: 600;
+}

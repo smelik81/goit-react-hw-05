@@ -1,0 +1,20 @@
+.movieItem::marker {
+  color: black;
+}
+
+.movieListTitle {
+  margin: 0;
+  font-size: 20px;
+}
+
+.movieLink {
+  text-decoration: underline;
+}
+
+.movieLink:hover {
+  transform: scale(1.5);
+}
+
+.movieLink:hover {
+  color: brown;
+}

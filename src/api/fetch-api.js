@@ -11,6 +11,20 @@ const options = {
 
 export const getProductsApi = async () => {
   const { data } = await axios.get("trending/movie/week", options);
-  /*  console.log(data); */
   return data;
+};
+
+export const getMoviesId = async (moviesId) => {
+  const { data } = await axios.get(`movie/${moviesId}`, options);
+  return data;
+};
+
+export const getMovieCast = async (moviesId) => {
+  const { data } = await axios.get(`movie/${moviesId}/credits`, options);
+  return data.cast;
+};
+
+export const getMovieReviews = async (moviesId) => {
+  const { data } = await axios.get(`movie/${moviesId}/reviews`, options);
+  return data.results;
 };
