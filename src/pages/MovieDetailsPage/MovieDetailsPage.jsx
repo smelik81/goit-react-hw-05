@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Link,
   NavLink,
@@ -12,7 +12,8 @@ import css from "./MovieDetailsPage.module.css";
 
 export default function MoviesDetailsPage() {
   const location = useLocation();
-  console.log(location);
+  const backLocationRef = useRef(location.state ?? "/");
+  console.log(backLocationRef.current);
 
   const { moviesId } = useParams();
   const [movie, setMovie] = useState(null);
@@ -45,7 +46,7 @@ export default function MoviesDetailsPage() {
 
       {movie && (
         <div>
-          <Link to="/movies">Go Back</Link>
+          <Link to={backLocationRef.current}>Go Back</Link>
           <div className={css.container}>
             <img
               src={`${imageBaseUrl}${movie.poster_path}`}

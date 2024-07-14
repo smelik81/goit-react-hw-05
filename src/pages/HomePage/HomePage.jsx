@@ -3,11 +3,15 @@ import { useEffect, useState } from "react";
 import MovieList from "../../components/MovieList/MovieList";
 import css from "./HomePage.module.css";
 import Loader from "../../components/Loader";
+import { useLocation } from "react-router-dom";
 
 const HomePage = () => {
   const [films, setFilms] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
+
+  const location = useLocation();
+  console.log(location);
 
   useEffect(() => {
     const getMovies = async () => {
