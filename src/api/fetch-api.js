@@ -28,3 +28,11 @@ export const getMovieReviews = async (moviesId) => {
   const { data } = await axios.get(`movie/${moviesId}/reviews`, options);
   return data.results;
 };
+
+export const getSearch = async (query) => {
+  const { data } = await axios.get(`search/movie`, {
+    params: { query },
+    ...options,
+  });
+  return data.results;
+};

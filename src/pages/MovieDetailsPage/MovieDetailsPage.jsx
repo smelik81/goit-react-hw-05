@@ -1,10 +1,19 @@
 import { useEffect, useState } from "react";
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+  useParams,
+} from "react-router-dom";
 import { getMoviesId } from "../../api/fetch-api";
 import Loader from "../../components/Loader";
 import css from "./MovieDetailsPage.module.css";
 
 export default function MoviesDetailsPage() {
+  const location = useLocation();
+  console.log(location);
+
   const { moviesId } = useParams();
   const [movie, setMovie] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -36,6 +45,7 @@ export default function MoviesDetailsPage() {
 
       {movie && (
         <div>
+          <Link to="/movies">Go Back</Link>
           <div className={css.container}>
             <img
               src={`${imageBaseUrl}${movie.poster_path}`}

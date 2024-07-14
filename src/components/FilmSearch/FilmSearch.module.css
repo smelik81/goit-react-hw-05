@@ -1,0 +1,14 @@
+.input {
+  background-color: #bfb3b35e;
+  padding: 8px;
+  font-size: 17px;
+  color: black;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.btn {
+  background-color: gray;
+}
